@@ -11,12 +11,14 @@ import io.reactivex.schedulers.Schedulers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.rl.kanmeitu.R;
 import com.rl.kanmeitu.adapter.ImageAdapter;
 import com.rl.kanmeitu.api.Api;
 import com.rl.kanmeitu.domain.Image;
 import com.rl.kanmeitu.domain.response.ListResponse;
+import com.rl.kanmeitu.util.Constants;
 import com.rl.kanmeitu.util.SharedPrefrenceUtil;
 
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 public class MainActivity extends BaseActivity {
 
     private ImageAdapter imageAdapter;
+    private static Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +39,29 @@ public class MainActivity extends BaseActivity {
         rv.setLayoutManager(layoutManager);
 
         ArrayList<Image> datas = new ArrayList<>();
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i < 50; i++) {
             datas.add(new Image(String.format("http://dev-courses-quick.oss-cn-beijing.aliyuncs.com/%d.jpg",i)));
         }
 //        fetchData(); // bug
         imageAdapter = new ImageAdapter(this);
         rv.setAdapter(imageAdapter);
         imageAdapter.setData(datas);
+        imageAdapter.setOnitemClickListener(new ImageAdapter.OnitemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+//                if (toast != null){
+//
+//                }else {
+//                    toast = Toast.makeText(MainActivity.this,"click"+ position,Toast.LENGTH_SHORT);
+//                }
+//                toast.setText("click"+ position);
+//                toast.show();
+                Image image = imageAdapter.getData(position);
+                Intent intent = new Intent(MainActivity.this,ImageDetailActivity.class);
+                intent.putExtra(Constants.ID,image.getUri());
+                startActivity(intent);
+            }
+        });
     }
 
     private void fetchData() {

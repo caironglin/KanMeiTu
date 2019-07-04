@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KanMeiTu</string>
+    <string name="app_name">看美图</string>
     <string name="email_hint">请输入邮箱</string>
     <string name="password_hint">请输入密码</string>
     <string name="login">登录</string>
