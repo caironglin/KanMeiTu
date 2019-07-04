@@ -1,7 +1,9 @@
-package com.rl.kanmeitu;
+package com.rl.kanmeitu.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.rl.kanmeitu.R;
 
 public class MainActivity extends AppCompatActivity {
 
