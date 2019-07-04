@@ -28,8 +28,8 @@ public class MainActivity extends BaseActivity {
         rv.setLayoutManager(layoutManager);
 
         ArrayList<Image> datas = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            datas.add(new Image(""));
+        for (int i = 1; i < 10; i++) {
+            datas.add(new Image(String.format("http://dev-courses-quick.oss-cn-beijing.aliyuncs.com/%d.jpg",i)));
         }
         ImageAdapter imageAdapter = new ImageAdapter(this);
         rv.setAdapter(imageAdapter);
