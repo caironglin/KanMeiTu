@@ -14,13 +14,12 @@ import com.rl.kanmeitu.R;
 import com.rl.kanmeitu.util.Constants;
 import com.rl.kanmeitu.util.SharedPrefrenceUtil;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
 
     private EditText et_username;
     private EditText et_password;
     private Button bt_login;
-    private SharedPrefrenceUtil sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         bt_login.setOnClickListener(this);
 
-        sp = SharedPrefrenceUtil.getInstance(getApplicationContext());
     }
 
     @Override

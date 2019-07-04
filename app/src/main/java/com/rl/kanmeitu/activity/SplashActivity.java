@@ -11,7 +11,7 @@ import android.view.WindowManager;
 import com.rl.kanmeitu.R;
 import com.rl.kanmeitu.util.SharedPrefrenceUtil;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
 
     public Handler handler = new Handler(){
         @Override
@@ -20,7 +20,6 @@ public class SplashActivity extends AppCompatActivity {
             next();
         }
     };
-    private SharedPrefrenceUtil sp;
 
 
     private void next() {
@@ -46,6 +45,5 @@ public class SplashActivity extends AppCompatActivity {
             }
         },3000);
 
-        sp = SharedPrefrenceUtil.getInstance(getApplicationContext());
     }
 }
